@@ -1,0 +1,117 @@
+
+TEST: FUNDAMENTALS
+FORESTBOOK: NOTEBOOK FOR THE WAKING HIKER /50
+In this test we are going to write an application that allows a user to keep track
+of the observations he makes in the forest in a notebook.
+observations made in the forest in a notebook.
+The application will be explained step by step, if you still have questions or
+things are not clear you can ask the
+are not clear you can ask the instructor.
+Most of the functionality from this project will be in the App class, as well as the
+ForestBook:
+- Adding Plants
+- Adding animals
+- Sorting plants and animals
+- filtering animals in a list[Carnivore, Herbivore, Omnivore]
+- Print animals and plants
+DEFINITELY DON'T FORGET THE GOOD PRACTICES[THESE ARE DESCRIBED IN THE DOCC]
+
+
+1.1 ENTITIES
+❏ You start by creating a new package in the src folder called this package:
+(be.intecbrussel.the_notebook.)entities
+
+1.2 PLANT_ENTITIES
+❏ In the entities package create a new package: plant_entities
+❏ Create the following classes in this package [copy UML carefully].
+A little more info on these classes
+Scent and Leaftype are enums, these are used in some subclasses
+The plants listed above are the different types of plants that a researcher might
+encounter during a walk in the woods.
+The property name will always be the name of the species eg "Pink Delight"
+[is passed to the constructor during initialization in the App class].
+Furthermore there is also the possibility to set other properties [such as Scent or LeafType] in the
+set in the App class via setters[see uml].
+
+1.3 ANIMAL_ENTITIES
+Test OOP Page | 4
+Create a new package on the same level as plant_entities : animal_entities
+❏ Create the following classes in this package [adopt UML carefully].
+Note! The name of the Animal class has no setter method.
+Carnivore keeps track of a maxFoodSize. In it, we are going to keep track of the maximum height of
+the prey is that this animal can eat.
+Herbivore uses a set where we can store different plants. These
+plants represent the plants that a herbivore eats.
+The addPlantToDiet method allows a user to add a plant, we will internally
+keep track of it in our property plantDiet.
+Omnivore is a combination of a carnivore and a herbivore. [In this we will therefore keep both
+a maxFoodSize and plantDiet, for implementation see above explanation]
+
+1.4 SERVICE
+Create a new package which is on the same level as the entities package
+and name this package: service
+❏ Now create the class below [follow the uml diagram carefully].
+The class above represents a digital notebook where we can store all the animals and plants in
+plants.
+
+
+Test OOP Page | 6
+The methods to add plants and animals must have a control mechanism. They
+must check that the same animal is not added twice. [compare the
+name]
+Further implementation details:
+❏ the plantCount method returns the amount of plants we keep internally
+The animalCount method returns the amount of animals we keep internally
+❏ the printNotebook method prints all plants and animals. [You can do this in different
+ways, try to choose the best strategy yourself]
+❏ the sortAnimalsByName method sorts the internal animal list by name.
+❏ the sortPlantsByName method sorts the internal plant list by name.
+TIP: You get in the addAnimal method an argument Animal animal this will appear both in the
+animals list as well as in the correct internal list[thus in carnivores, herbivores
+or omnivores].
+
+TIP: You may choose which concrete implementation you want for the list [read: ArrayList or
+LinkedList] for the different properties carnivores, herbivores, omnivores, plants and
+animals.
+
+BONUS [only if there is time left]
+❏ create a sortAnimalsByHeight method and a sortPlantsByHeight method.
+
+1.5 APP
+❏ Create a new package which is on the same level as the entities and service
+package and call this package: app
+❏ Now create in this package a class NatureApp [it contains of course a main
+method].
+
+Part 1 info
+The idea is that you will take on the role of a forest walker. During your
+relaxing Sunday morning walk, you will come face to face with a number of animals and
+plants. Closely measure all the characteristics of the animals and plants. And do you keep track of these
+animals and plants in your notebook.
+❏ Create an instance of Notebook and give it a sensible name.
+❏ Create at least 5 different plants, make sure you have at least 1 Three, Flower,
+Weed and Bush object. [use the appropriate constructor for this, as well as methods
+to keep track of all measurements]
+❏ Now create at least 9 different animals. Make sure you have at least 1 Herbivore,
+Carnivore and Omnivore objects, [use the appropriate constructor, as well as methods to keep track
+of all measurements
+methods to keep track of all measurements]
+TIP: Remember that some animals eat plants and you give a plantDiet to these objects.
+these objects [You can feel free to give the same Set multiple times to the different instances].
+
+Part 2 info
+After the walk, you come back home and flip through your notebook for a moment to see your new
+discoveries.
+❏ use a sysout to show the number of animals and plants you've encountered
+show[hint: should be minimum 5 plants and 9 animals].
+❏ Then use the printNotebook method of your Notebook instance[shows the
+unsorted list of animals and plants].
+❏ Print the lists of carnivores, omnivores, and herbivores separately.
+❏ Sort the animals and plants with the sortAnimalsByName and sortPlantsByName
+methods of your Notebook instance.
+❏ Then use the printNotebook method of your Notebook instance[now shows the
+sorted list of animals and plants].
+
+TIP: if you decide to create private helper methods in ForestBook or NatureApp
+try to provide them with comments that give a concise description of the method.
+gives.
