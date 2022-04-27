@@ -4,10 +4,8 @@ import be.intecbrussel.notebook.entities.animals.Carnivore;
 import be.intecbrussel.notebook.entities.animals.Herbivore;
 import be.intecbrussel.notebook.entities.animals.Omnivore;
 import be.intecbrussel.notebook.entities.plants.Plant;
-import java.util.ArrayList;
-import java.util.Comparator;
-import java.util.List;
-import java.util.Set;
+
+import java.util.*;
 
 public class ForestNoteBook {
     private List<Carnivore> carnivores = new ArrayList<>();
@@ -75,7 +73,12 @@ public class ForestNoteBook {
     }
 
     public void addPlant (Plant plant){
+        if(!plants.contains(plant)) {
+            plants.add(plant);
+        }
             // check for duplicates
+        //how can i implement  hashCode?
+       /*
         boolean isPresent = false;
         if (this.plants != null) {
             isPresent = this.plants.stream().anyMatch(o -> plant.getName().equals(o.getName()));
@@ -85,6 +88,7 @@ public class ForestNoteBook {
                 return;
             }
             this.plants.add(plant);
+        */
         }
 
         public void printNoteBook () {
@@ -97,9 +101,27 @@ public class ForestNoteBook {
         public void sortAnimalsByName () {
             animals.sort(Comparator.comparing(Animal::getName));
         }
+    public void printPlant2 () {
+        System.out.println("-------------Print unsorted Plants for 2 X-------------");
+      this.plants.stream().forEach(e-> System.out.println(e.getName()));
+    }
 
         public void sortPlantsByName () {
             plants.sort(Comparator.comparing(Plant::getName));
         }
 
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof ForestNoteBook)) return false;
+        ForestNoteBook that = (ForestNoteBook) o;
+        return getPlantCount() == that.getPlantCount() && plants.equals(that.plants);
     }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(getPlantCount(), plants);
+    }
+
+
+}

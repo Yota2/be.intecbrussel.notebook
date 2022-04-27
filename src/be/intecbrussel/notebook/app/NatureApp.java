@@ -64,6 +64,13 @@ public class NatureApp {
         System.out.println("------------------------------------------------------------");
         System.out.println("Sorted list of animals and plants");
         amazonForest.printNoteBook();
+        System.out.println("-------------------------------------plants-----------------------------");
+        Herbivore herbivore = new Herbivore("Howler Monkey", 7.3,0.65,0.65);
+        herbivore.addPlantToDiet(weed);
+        herbivore.addPlantToDiet(tree);
+        System.out.println("--------------------------------HashCode Print Diets-----------------------------------");
+        herbivore.printDiet();
+
     }
 }
 
